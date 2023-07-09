@@ -1,0 +1,9 @@
+Schema Combinations
+- allOf - array - Must be valid against all of the subschemas
+- anyOf - array - Must be valid against any of the subschemas
+- oneOf - array - Must be valid against exactly one of the subschemas
+- not - object - Must not be valid against the given schema
+- if/then/else - Allow for conditional validation
+
+common schema keywords (comp_common.R)
+enumeration support
