@@ -60,17 +60,41 @@ object_schema1 <- js_schema(
   )
 )
 
+object_schema2 <- js_schema(
+      js_object(
+        myname = js_string(.required = TRUE),
+        myage = js_integer(.required = FALSE),
+        .min_properties = 1,
+        .max_properties = 10,
+        .pattern_properties = "^[a-z]+$",
+        .additional_properties = TRUE,
+        .required = TRUE
+      )
+    )
+
+
+object_object2 <- list(
+  myname = "Hallo",
+  myage = 30
+) %>% 
+jsonlite::toJSON(auto_unbox = TRUE)
+
+parse(object_schema2, object_object2)
 
 # Example 7: Schema containing a simple array with a required string and optional numeric
 array_schema1 <- js_schema(
   js_array(
     items = js_string(.required = TRUE),
     .min_items = 1,
-    .max_items = 10,
+    .max_items = 20,
     .unique_items = TRUE
   )
 )
 
+array_object1 <- 1:20 %>%
+  jsonlite::toJSON()
+
+parse(array_schema1, array_object1)
 
 
 demo_schema <- ps_schema(

@@ -1,3 +1,5 @@
+# TODO fix pattern properties
+# https://json-schema.org/understanding-json-schema/reference/object.html#id4
 js_object <- function(
   ...,
   .min_properties = NULL,

@@ -19,7 +19,7 @@ test_that("can create string schema with all attributes", {
   })
 })
 
-test_that("can create string schema with all attributes and validate sucessfully", {
+test_that("can create string schema with all attributes and parse sucessfully", {
   schema <- js_schema(
     js_string(
       .min_length = 1,
@@ -33,27 +33,27 @@ test_that("can create string schema with all attributes and validate sucessfully
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_no_error({
-    validate(schema, request_valid)
+    parse(schema, request_valid)
   })
 
   request_too_short <- "" %>% 
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_error({
-    validate(schema, request_too_short)
+    parse(schema, request_too_short)
   })
 
   request_too_long <- "this is too long" %>% 
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_error({
-    validate(schema, request_too_long)
+    parse(schema, request_too_long)
   })
 
   request_invalid_pattern <- "123" %>% 
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_error({
-    validate(schema, request_invalid_pattern)
+    parse(schema, request_invalid_pattern)
   })
 })
