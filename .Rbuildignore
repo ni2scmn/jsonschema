@@ -2,3 +2,7 @@
 ^renv\.lock$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^TODOS$
+^WIP_req_object.R$
+^\.github$
+^\.vscode$

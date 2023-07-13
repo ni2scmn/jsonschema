@@ -1,14 +1,27 @@
 Package: plumber.schema
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Implementation of JSON Schema for plumber
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: 
+    person(given = "Nils",
+           family = "Schnakenberg",
+           role = c("aut", "cre"),
+           email = "schnakenberg.nils@gmail.com")
+Maintainer: Nils Schnakenberg <schnakenberg.nils@gmail.com>
+Description: Implementation of JSON Schema for plumber. This package provides a
+    function to generate a plumber router from a JSON Schema. The router can be
+    used to validate requests against the schema and to generate OpenAPI
+    documentation.
+License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+RoxygenNote: 7.2.3
+Imports:
+    digest,
+    jsonlite,
+    purrr,
+    rlang,
+    magrittr
