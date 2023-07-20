@@ -6,3 +6,4 @@
 ^WIP_req_object.R$
 ^\.github$
 ^\.vscode$
+^codecov\.yml$
