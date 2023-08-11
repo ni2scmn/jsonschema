@@ -101,6 +101,13 @@ validate.js_schema_boolean <- function(schema, request) {
   TRUE
 }
 
+validate.js_schema_null <- function(schema, request) {
+  if(!is.null(request)) {
+    rlang::abort("null invalid")
+  }
+  TRUE
+}
+
 # TODO handle missing & default
 validate.js_schema_integer <- function(schema, request) {
   print("validate.js_schema_integer")
