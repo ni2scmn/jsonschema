@@ -94,6 +94,13 @@ validate.js_schema_array <- function(schema, request) {
   TRUE
 }
 
+validate.js_schema_boolean <- function(schema, request) {
+  if(!rlang::is_scalar_logical(request)) {
+    rlang::abort("boolean invalid")
+  }
+  TRUE
+}
+
 # TODO handle missing & default
 validate.js_schema_integer <- function(schema, request) {
   print("validate.js_schema_integer")
