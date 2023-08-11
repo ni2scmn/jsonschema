@@ -16,3 +16,5 @@ implement recursion with ref?
 implement $defs
 
 implement dialects
+expressive error messages
+keep context in validation
