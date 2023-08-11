@@ -11,7 +11,7 @@ js_string <- function(
       "ipv4", "ipv6", "uuid", "uri", "uri-reference",
       "iri", "iri-reference", "uri-template", "json-pointer",
       "relative-json-pointer", "regex"
-    )
+    ),
 
     # GENERIC ARGS
     .default = NULL,
