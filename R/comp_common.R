@@ -1,12 +1,17 @@
+# TODO readOnly, writeOnly?
+# TODO deprecated?
+# TODO '$schema' version?
+
 ps_common_attributes <- function(
   entity,
-  .enum = NULL,
+  .enum = NULL, # TODO check type of default value?
   .const = NULL,
   .title = NULL,
   .description = NULL,
-  .default = NULL,
+  .default = NULL, # TODO check type of default value?
   .examples = NULL,
-  .comment = NULL
+  .comment = NULL, # '$comment in schema'
+  .required
 ) {
   
   stopifnot(

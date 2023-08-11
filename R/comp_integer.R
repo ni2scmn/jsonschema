@@ -1,3 +1,5 @@
+# TODO check valide is integer
+# TODO should be able to define both minimum and exclusiveMinimum
 js_integer <- function(
     .multiple_of = NULL,
     .minimum = NULL,

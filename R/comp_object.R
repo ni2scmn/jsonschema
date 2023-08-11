@@ -1,3 +1,13 @@
+# TODO unevaluatedProperties?
+# TODO propertyNames?
+
+# TODO dependentRequired
+# TODO dependentSchemas
+
+# check for both if it should be included in common
+# TODO if-then-else
+# TODO implication?
+
 # TODO fix pattern properties
 # https://json-schema.org/understanding-json-schema/reference/object.html#id4
 js_object <- function(
@@ -14,6 +24,9 @@ js_object <- function(
 
   # TODO check dependencies
   # TODO check property_names
+    
+  # TODO additional_items
+  # TODO contains ??
 
   stopifnot(
     "`.min_properties` must be non negative integer or NULL" =

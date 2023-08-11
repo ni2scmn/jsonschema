@@ -3,8 +3,15 @@ js_string <- function(
     .max_length = NULL,
     .pattern = NULL,
 
-    # TODO `format` attribute
-    # -> https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats
+    # TODO maybe add validations to some of them?
+    # https://json-schema.org/understanding-json-schema/reference/string.html#built-in-formats
+    .format = c(
+      "date-time", "date", "time", "duration",
+      "email", "idn-email", "hostname", "idn-hostname",
+      "ipv4", "ipv6", "uuid", "uri", "uri-reference",
+      "iri", "iri-reference", "uri-template", "json-pointer",
+      "relative-json-pointer", "regex"
+    )
 
     # GENERIC ARGS
     .default = NULL,

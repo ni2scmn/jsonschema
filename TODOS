@@ -7,3 +7,12 @@ Schema Combinations
 
 common schema keywords (comp_common.R)
 enumeration support
+
+handle different schema versions?
+handle difference between json schema and subset allowed in OpenAPI
+common integer and number code?
+implement $ref
+implement recursion with ref?
+implement $defs
+
+implement dialects

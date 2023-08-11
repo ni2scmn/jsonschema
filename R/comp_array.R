@@ -1,3 +1,6 @@
+# TODO prefixItems?
+# TODO items can be set to false indicating only prefixItems can be included
+# TODO unevaluatedItems?
 js_array <- function(
   items,
   .min_items = NULL,
@@ -5,7 +8,10 @@ js_array <- function(
   .unique_items = NULL,
 
   # TODO additional_items
-  # TODO contains
+  # TODO contains, minContains, maxContains
+  .contains = NULL,
+  .min_contains = NULL,
+  .max_contains = NULL,
 
   # GENERIC ARGS
   .required = FALSE) {

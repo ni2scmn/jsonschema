@@ -1,3 +1,5 @@
+# TODO '$id' -> Backlog
+
 js_schema <- function(root) {
   stopifnot(
     "Root must be a schema component" = 
