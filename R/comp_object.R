@@ -18,8 +18,6 @@ js_object <- function(
   .additional_properties = NULL,
   .dependencies = NULL,
   .property_names = NULL,
-  
-  # GENERIC ARGS
   .required = FALSE) {
 
   # TODO check dependencies
