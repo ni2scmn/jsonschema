@@ -2,7 +2,7 @@ name: R
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main" , "feat-actions-cache"]
   pull_request:
     branches: [ "main" ]
 
@@ -30,20 +30,30 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - name: install missing ubuntu deps
+        if: ${{ matrix.config.os == 'ubuntu-20.04' && matrix.config.r == 'devel'}}
+        run: sudo apt-get install -y libcurl4-openssl-dev
+
       - name: Set up R ${{ matrix.config.r }}
         uses: r-lib/actions/setup-r@v2
         with:
           r-version: ${{ matrix.config.r }}
 
-      - name: install missing ubuntu deps
-        if: ${{ matrix.config.os == 'ubuntu-20.04' && matrix.config.r == 'devel'}}
-        run: sudo apt-get install -y libcurl4-openssl-dev
+      - name: Set up R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::remotes
+            any::rcmdcheck
+            any::covr
+            local::. # install the package in the current working directory
 
-      - name: Install dependencies
-        run: |
-          install.packages(c("remotes", "rcmdcheck", "covr"))
-          remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
+
+      # - name: Install dependencies
+      #   run: |
+      #     install.packages(c("remotes", "rcmdcheck", "covr"))
+      #     remotes::install_deps(dependencies = TRUE)
+      #   shell: Rscript {0}
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
