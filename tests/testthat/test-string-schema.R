@@ -29,28 +29,28 @@ test_that("can create string schema with all attributes and parse sucessfully", 
     )
   )
 
-  request_valid <- "test" %>% 
+  request_valid <- "test" %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_no_error({
     parse(schema, request_valid)
   })
 
-  request_too_short <- "" %>% 
+  request_too_short <- "" %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_error({
     parse(schema, request_too_short)
   })
 
-  request_too_long <- "this is too long" %>% 
+  request_too_long <- "this is too long" %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_error({
     parse(schema, request_too_long)
   })
 
-  request_invalid_pattern <- "123" %>% 
+  request_invalid_pattern <- "123" %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   expect_error({

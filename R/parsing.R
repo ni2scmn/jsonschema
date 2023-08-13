@@ -7,7 +7,7 @@ parse <- function(schema, request_string) {
     flatten = FALSE
   )
 
-  if(!validate(schema, request)) rlang::abort("Invalid request")
+  if (!validate(schema, request)) rlang::abort("Invalid request")
 
   request
 }
