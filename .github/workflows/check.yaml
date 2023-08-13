@@ -46,8 +46,7 @@ jobs:
             any::remotes
             any::rcmdcheck
             any::covr
-            local::. # install the package in the current working directory
-
+            local::.
 
       # - name: Install dependencies
       #   run: |
