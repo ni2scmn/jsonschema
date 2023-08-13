@@ -11,33 +11,32 @@ testthat::test_that("can create boolean schema and validate successfully", {
     js_null()
   )
 
-  request_valid <- NULL %>% 
+  request_valid <- NULL %>%
     jsonlite::toJSON(auto_unbox = TRUE, null = "null")
 
   testthat::expect_no_error({
     parse(schema, request_valid)
   })
-  
-  request_invalid_false <- FALSE  %>% 
+
+  request_invalid_false <- FALSE  %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   testthat::expect_error({
     parse(schema, request_invalid_false)
   })
 
-  request_invalid_na <- NA %>% 
+  request_invalid_na <- NA %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   testthat::expect_no_error({
     parse(schema, request_invalid_na)
-  }) 
+  })
 
-  request_invalid_int <- 0 %>% 
+  request_invalid_int <- 0 %>%
   jsonlite::toJSON(auto_unbox = TRUE)
 
   testthat::expect_error(
     parse(schema, request_invalid_int)
   )
 
-  
 })
