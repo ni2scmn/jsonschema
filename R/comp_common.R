@@ -1,8 +1,22 @@
 # TODO readOnly, writeOnly?
 # TODO deprecated?
 # TODO '$schema' version?
+# TODO mandatory on element level?
 
-ps_common_attributes <- function(
+#' Utility function for common schema keywords
+#' 
+#' @param .element js_schema_component
+#' @param .title title for schema component
+#' @param .description longer description for schema component
+#' @param .comment '$comment' tag for internal comments of schema component
+#' @param .examples TODO doc
+#' @param .enum restrict element by list of valid elements
+#' @param .const restrict element by constant value that must be met
+#' @param .default default value for component if not explicitly set
+#' 
+#' @return modified .element
+#' 
+js_common_attributes <- function(
   .element,
 
   # describing attributes
@@ -38,9 +52,8 @@ ps_common_attributes <- function(
     "`.const` must be scalar vector or NULL" =
       rlang::is_scalar_vector(.const) || is.null(.const),
 
-
     "`.default` must be scalar string or NULL" =
-      rlang::is_scalar_character(.default) || is.null(.default),
+      rlang::is_scalar_character(.default) || is.null(.default)
   )
 
   if(inherits(.element, "js_schema_object") && !is.null(.enum)) {
