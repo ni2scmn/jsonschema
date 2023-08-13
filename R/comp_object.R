@@ -22,7 +22,7 @@ js_object <- function(
 
   # TODO check dependencies
   # TODO check property_names
-    
+
   # TODO additional_items
   # TODO contains ??
 

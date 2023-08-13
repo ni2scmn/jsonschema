@@ -15,39 +15,39 @@ validate.js_schema_object <- function(schema, request) {
 
   # check for required attributes
   required_attributes <- schema$props %>%
-    purrr::keep( 
+    purrr::keep(
       ~ inherits(.x, "js_schema_component") &&
       .x$required
       )
 
-  if(!all(names(required_attributes) %in% names(request))) {
+  if (!all(names(required_attributes) %in% names(request))) {
     rlang::abort("Missing mandatory!")
   }
 
   # check for min/max properties
-  if(!is.null(schema$min_properties)) {
-    if(length(request) < schema$min_properties) {
+  if (!is.null(schema$min_properties)) {
+    if (length(request) < schema$min_properties) {
       rlang::abort("Too few properties!")
     }
   }
 
-  if(!is.null(schema$max_properties)) {
-    if(length(request) > schema$max_properties) {
+  if (!is.null(schema$max_properties)) {
+    if (length(request) > schema$max_properties) {
       rlang::abort("Too many properties!")
     }
   }
 
   # check for pattern properties
-  if(!is.null(schema$pattern_properties)) {
-    if(!all(grepl(schema$pattern_properties, names(request)))) {
+  if (!is.null(schema$pattern_properties)) {
+    if (!all(grepl(schema$pattern_properties, names(request)))) {
       rlang::abort("Pattern mismatch!")
     }
   }
 
   # check for additional properties
-  if(!is.null(schema$additional_properties)) {
-    if(!schema$additional_properties) {
-      if(!all(names(request) %in% names(schema$props))) {
+  if (!is.null(schema$additional_properties)) {
+    if (!schema$additional_properties) {
+      if (!all(names(request) %in% names(schema$props))) {
         rlang::abort("Additional properties not allowed!")
       }
     }
@@ -72,14 +72,14 @@ validate.js_schema_array <- function(schema, request) {
   # stopifnot(inherits(request, "list"))
 
   # check if length is in bounds
-  if(!is.null(schema$min_items)) {
-    if(length(request) < schema$min_items) {
+  if (!is.null(schema$min_items)) {
+    if (length(request) < schema$min_items) {
       rlang::abort("Too few items!")
     }
   }
 
-  if(!is.null(schema$max_items)) {
-    if(length(request) > schema$max_items) {
+  if (!is.null(schema$max_items)) {
+    if (length(request) > schema$max_items) {
       rlang::abort("Too many items!")
     }
   }
@@ -87,7 +87,7 @@ validate.js_schema_array <- function(schema, request) {
   # check unique items
   # TODO check if feasible
   item_hashes <- purrr::map(request, digest::digest)
-  if(anyDuplicated(item_hashes)) {
+  if (anyDuplicated(item_hashes)) {
     rlang::abort("Duplicate items!")
   }
 
@@ -95,14 +95,14 @@ validate.js_schema_array <- function(schema, request) {
 }
 
 validate.js_schema_boolean <- function(schema, request) {
-  if(!rlang::is_scalar_logical(request)) {
+  if (!rlang::is_scalar_logical(request)) {
     rlang::abort("boolean invalid")
   }
   TRUE
 }
 
 validate.js_schema_null <- function(schema, request) {
-  if(!is.null(request)) {
+  if (!is.null(request)) {
     rlang::abort("null invalid")
   }
   TRUE
@@ -141,13 +141,13 @@ validate.js_schema_string <- function(schema, request) {
   # TODO make more robust
   request <- as.character(request)
 
-  if(!is.null(schema$pattern) && !grepl(schema$pattern, request)) {
+  if (!is.null(schema$pattern) && !grepl(schema$pattern, request)) {
     rlang::abort("pattern mismatch")
   }
-  if(!is.null(schema$min_length) && nchar(request) < schema$min_length) {
+  if (!is.null(schema$min_length) && nchar(request) < schema$min_length) {
     rlang::abort("too short")
   }
-  if(!is.null(schema$max_length) && nchar(request) > schema$max_length) {
+  if (!is.null(schema$max_length) && nchar(request) > schema$max_length) {
     rlang::abort("too long")
   }
 
@@ -156,19 +156,19 @@ validate.js_schema_string <- function(schema, request) {
 
 
 check_for_bounds <- function(schema, request) {
-  if(!is.null(schema$multiple_of) && request %% schema$multiple_of != 0) {
+  if (!is.null(schema$multiple_of) && request %% schema$multiple_of != 0) {
     rlang::abort("not multiple of")
   }
-  if(!is.null(schema$minimum) && request < schema$minimum) {
+  if (!is.null(schema$minimum) && request < schema$minimum) {
     rlang::abort("too low")
   }
-  if(!is.null(schema$maximum) && request > schema$maximum) {
+  if (!is.null(schema$maximum) && request > schema$maximum) {
     rlang::abort("too high")
   }
-  if(!is.null(schema$exclusive_minimum) && request <= schema$exclusive_minimum) {
+  if (!is.null(schema$exclusive_minimum) && request <= schema$exclusive_minimum) {
     rlang::abort("too low")
   }
-  if(!is.null(schema$exclusive_maximum) && request >= schema$exclusive_maximum) {
+  if (!is.null(schema$exclusive_maximum) && request >= schema$exclusive_maximum) {
     rlang::abort("too high")
   }
 }

@@ -18,7 +18,7 @@ ps_common_attributes <- function(
 ) {
 
   stopifnot(
-    "`.element` must be instance of js_schema_component" = 
+    "`.element` must be instance of js_schema_component" =
       inherits(.element, "js_schema_component"),
     "`.title` must be scalar string or NULL" =
       rlang::is_scalar_character(.title) || is.null(.title),
@@ -33,7 +33,9 @@ ps_common_attributes <- function(
 
     # TODO which type does enum have in case of object
     "`.enum` must be scalar vector or NULL" =
-      inherits(.element, "js_schema_object") || rlang::is_scalar_vector(.enum) || is.null(.enum),
+      inherits(.element, "js_schema_object") ||
+        rlang::is_scalar_vector(.enum) ||
+        is.null(.enum),
 
     "`.const` must be scalar vector or NULL" =
       rlang::is_scalar_vector(.const) || is.null(.const),
@@ -43,7 +45,7 @@ ps_common_attributes <- function(
       rlang::is_scalar_character(.default) || is.null(.default),
   )
 
-  if(inherits(.element, "js_schema_object") && !is.null(.enum)) {
+  if (inherits(.element, "js_schema_object") && !is.null(.enum)) {
     rlang::warn("No validation for enums of object type implemented")
   }
 
@@ -59,17 +61,4 @@ ps_common_attributes <- function(
       default = .default
     )
   )
-
-  # structure(
-  #   list(
-  #     enum = .enum,
-  #     const = .const,
-  #     title = .title,
-  #     description = .description,
-  #     default = .default,
-  #     examples = .examples,
-  #     comment = .comment
-  #   ),
-  #   class = c("plumber_req_common", "plumber_req_schema")
-  # )
 }
