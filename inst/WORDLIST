@@ -1,14 +1,21 @@
+allOf
+anyOf
 aut
+cicd
 Config
 covr
 cre
+defs
+github
 gmail
 JSON
+json
 jsonlite
 LazyData
 magrittr
 nils
 Nils
+oneOf
 OpenAPI
 precommit
 purrr
@@ -16,4 +23,5 @@ rlang
 RoxygenNote
 schnakenberg
 Schnakenberg
+subschemas
 testthat
