@@ -13,16 +13,17 @@ validate.js_schema <- function(schema, request) {
 validate.js_schema_object <- function(schema, request) {
   print("validate.js_schema_object")
 
+  # TODO implement check for required
   # check for required attributes
-  required_attributes <- schema$props %>%
-    purrr::keep( 
-      ~ inherits(.x, "js_schema_component") &&
-      .x$required
-      )
+  # required_attributes <- schema$props %>%
+  #   purrr::keep( 
+  #     ~ inherits(.x, "js_schema_component") &&
+  #     .x$required
+  #     )
 
-  if(!all(names(required_attributes) %in% names(request))) {
-    rlang::abort("Missing mandatory!")
-  }
+  # if(!all(names(required_attributes) %in% names(request))) {
+  #   rlang::abort("Missing mandatory!")
+  # }
 
   # check for min/max properties
   if(!is.null(schema$min_properties)) {

@@ -2,5 +2,6 @@
 
 export(js_array)
 export(js_boolean)
+export(js_integer)
 export(js_null)
 importFrom(magrittr,"%>%")
