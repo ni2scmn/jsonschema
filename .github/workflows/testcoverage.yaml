@@ -27,11 +27,15 @@ jobs:
       - name: install missing ubuntu deps
         run: sudo apt-get install -y libcurl4-openssl-dev
 
-      - name: Install dependencies
-        run: |
-          install.packages(c("remotes", "rcmdcheck", "covr"))
-          remotes::install_deps(dependencies = TRUE)
-        shell: Rscript {0}
+
+      - name: Set up R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          extra-packages: |
+            any::remotes
+            any::rcmdcheck
+            any::covr
+            local::.
 
       - name: Test coverage
         run: |

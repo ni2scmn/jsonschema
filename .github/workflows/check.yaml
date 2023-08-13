@@ -2,7 +2,7 @@ name: R
 
 on:
   push:
-    branches: [ "main" , "feat-actions-cache"]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
@@ -47,12 +47,6 @@ jobs:
             any::rcmdcheck
             any::covr
             local::.
-
-      # - name: Install dependencies
-      #   run: |
-      #     install.packages(c("remotes", "rcmdcheck", "covr"))
-      #     remotes::install_deps( dependencies = TRUE)
-      #   shell: Rscript {0}
 
       - name: Check
         run: rcmdcheck::rcmdcheck(args = "--no-manual", error_on = "error")
