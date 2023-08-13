@@ -1,9 +1,10 @@
-^renv$
-^renv\.lock$
 ^.*\.Rproj$
-^\.Rproj\.user$
 ^TODOS$
 ^WIP_req_object.R$
+^\.Rproj\.user$
 ^\.github$
+^\.pre-commit-config\.yaml$
 ^\.vscode$
 ^codecov\.yml$
+^renv$
+^renv\.lock$
