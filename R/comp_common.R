@@ -4,7 +4,7 @@
 # TODO mandatory on element level?
 
 #' Utility function for common schema keywords
-#' 
+#'
 #' @param .element js_schema_component
 #' @param .title title for schema component
 #' @param .description longer description for schema component
@@ -13,26 +13,23 @@
 #' @param .enum restrict element by list of valid elements
 #' @param .const restrict element by constant value that must be met
 #' @param .default default value for component if not explicitly set
-#' 
+#'
 #' @return modified .element
-#' 
+#'
 js_common_attributes <- function(
-  .element,
-
-  # describing attributes
-  .title = NULL,
-  .description = NULL,
-  .comment = NULL, # '$comment in schema'
-  .examples = NULL,
-
-  # validating attributes
-  .enum = NULL, # TODO check type of default value?
-  .const = NULL,
-  .default = NULL # TODO check type of default value?
-) {
-
+    .element,
+    # describing attributes
+    .title = NULL,
+    .description = NULL,
+    .comment = NULL, # '$comment in schema'
+    .examples = NULL,
+    # validating attributes
+    .enum = NULL, # TODO check type of default value?
+    .const = NULL,
+    .default = NULL # TODO check type of default value?
+    ) {
   stopifnot(
-    "`.element` must be instance of js_schema_component" = 
+    "`.element` must be instance of js_schema_component" =
       inherits(.element, "js_schema_component"),
     "`.title` must be scalar string or NULL" =
       rlang::is_scalar_character(.title) || is.null(.title),
@@ -47,16 +44,16 @@ js_common_attributes <- function(
 
     # TODO which type does enum have in case of object
     "`.enum` must be scalar vector or NULL" =
-      inherits(.element, "js_schema_object") || rlang::is_scalar_vector(.enum) || is.null(.enum),
-
+      inherits(.element, "js_schema_object") ||
+        rlang::is_scalar_vector(.enum) ||
+        is.null(.enum),
     "`.const` must be scalar vector or NULL" =
       rlang::is_scalar_vector(.const) || is.null(.const),
-
     "`.default` must be scalar string or NULL" =
       rlang::is_scalar_character(.default) || is.null(.default)
   )
 
-  if(inherits(.element, "js_schema_object") && !is.null(.enum)) {
+  if (inherits(.element, "js_schema_object") && !is.null(.enum)) {
     rlang::warn("No validation for enums of object type implemented")
   }
 
@@ -72,17 +69,4 @@ js_common_attributes <- function(
       default = .default
     )
   )
-
-  # structure(
-  #   list(
-  #     enum = .enum,
-  #     const = .const,
-  #     title = .title,
-  #     description = .description,
-  #     default = .default,
-  #     examples = .examples,
-  #     comment = .comment
-  #   ),
-  #   class = c("plumber_req_common", "plumber_req_schema")
-  # )
 }

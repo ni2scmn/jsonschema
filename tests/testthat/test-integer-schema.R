@@ -31,28 +31,28 @@ test_that("can create integer schema with all attributes and parse sucessfully",
     )
   )
 
-  request_valid <- 8 %>% 
+  request_valid <- 8 %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   testthat::expect_no_error({
     parse(schema, request_valid)
   })
 
-  request_no_multiple <- 9 %>% 
+  request_no_multiple <- 9 %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   testthat::expect_error({
     parse(schema, request_no_multiple)
   })
 
-  request_too_low <- 0 %>% 
+  request_too_low <- 0 %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
-  testthat::expect_error({ 
+  testthat::expect_error({
     parse(schema, request_too_low)
   })
 
-  request_too_high <- 11 %>% 
+  request_too_high <- 11 %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
   testthat::expect_error({
