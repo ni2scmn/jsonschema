@@ -8,6 +8,13 @@
 \description{
 Implementation of JSON Schema for plumber. This package provides a function to generate a plumber router from a JSON Schema. The router can be used to validate requests against the schema and to generate OpenAPI documentation.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://ni2scmn.github.io/plumberschema/}
+}
+
+}
 \author{
 \strong{Maintainer}: Nils Schnakenberg \email{schnakenberg.nils@gmail.com}
 

@@ -14,8 +14,7 @@ test_that("can create integer schema with all attributes", {
         .minimum = 1,
         .maximum = 10,
         .exclusive_minimum = 2,
-        .exclusive_maximum = 9,
-        .required = TRUE
+        .exclusive_maximum = 9
       )
     )
   })
@@ -28,8 +27,7 @@ test_that("can create integer schema with all attributes and parse sucessfully",
       .minimum = 1,
       .maximum = 10,
       .exclusive_minimum = 2,
-      .exclusive_maximum = 9,
-      .required = TRUE
+      .exclusive_maximum = 9
     )
   )
 
