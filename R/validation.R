@@ -8,6 +8,10 @@ validate_common <- function(schema, request) {
     validate_const(schema, request)
   }
 
+  if (!is.null(schema$enum)) {
+    validate_enum(schema, request)
+  }
+
   TRUE
 }
 

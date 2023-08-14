@@ -56,7 +56,7 @@ test_that("can create string schema with all attributes and parse sucessfully", 
   })
 })
 
-testthat::test_that("can create string schema with enumeration", {
+testthat::test_that("can create and parse string schema with enumeration", {
   demo_title <- "My title"
   demo_description <- "My description"
   demo_comment <- "My comment"
@@ -84,4 +84,18 @@ testthat::test_that("can create string schema with enumeration", {
   testthat::expect_equal(schema$root$enum, demo_enum)
   testthat::expect_equal(schema$root$examples, demo_examples)
   testthat::expect_equal(schema$root$required, demo_required)
+
+  request_valid <- demo_default %>%
+    jsonlite::toJSON(auto_unbox = TRUE)
+
+  testthat::expect_no_error({
+    parse(schema, request_valid)
+  })
+
+  request_invalid <- "My enum 3" %>%
+    jsonlite::toJSON(auto_unbox = TRUE)
+
+  testthat::expect_error({
+    parse(schema, request_invalid)
+  })
 })
