@@ -1,12 +1,16 @@
 # All available hooks: https://pre-commit.com/hooks.html
 # R specific hooks: https://github.com/lorenzwalthert/precommit
+
+# exclude scratch directory
+# must be single string, not list
 exclude: 'scratch'
+
 repos:
 -   repo: https://github.com/lorenzwalthert/precommit
     rev: v0.3.2.9019
-    hooks: 
+    hooks:
     -   id: style-files
-        args: [--style_pkg=styler, --style_fun=tidyverse_style]    
+        args: [--style_pkg=styler, --style_fun=tidyverse_style]
     -   id: roxygenize
         additional_dependencies:
         - jsonlite
@@ -51,13 +55,24 @@ repos:
     -   id: deps-in-desc
 -   repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
-    hooks: 
+    hooks:
     -   id: check-added-large-files
         args: ['--maxkb=200']
     -   id: file-contents-sorter
         files: '^\.Rbuildignore$'
     -   id: end-of-file-fixer
         exclude: '\.Rd'
+    -   id: check-byte-order-marker
+    -   id: check-case-conflict
+    -   id: check-json
+    -   id: check-yaml
+    -   id: pretty-format-json
+    -   id: check-merge-conflict
+    -   id: end-of-file-fixer
+    -   id: fix-byte-order-marker
+    -   id: mixed-line-ending
+    -   id: trailing-whitespace
+
 -   repo: https://github.com/pre-commit-ci/pre-commit-ci-config
     rev: v1.5.1
     hooks:
