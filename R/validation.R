@@ -12,6 +12,10 @@ validate_common <- function(schema, request) {
     validate_enum(schema, request)
   }
 
+  if (schema$required && is.null(request)) {
+    rlang::abort("Missing mandatory!")
+  }
+
   TRUE
 }
 
