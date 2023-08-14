@@ -1,9 +1,24 @@
+validate_common <- function(schema, request) {
+  # TODO function isRoot?
+  if (inherits(schema, "js_schema")) {
+    return(TRUE)
+  }
+  print("validate_common")
+  if (!is.null(schema$const)) {
+    validate_const(schema, request)
+  }
+
+  TRUE
+}
+
+
 validate <- function(schema, request) {
-  UseMethod("validate")
+  validate_common(schema, request) &&
+    UseMethod("validate", schema)
 }
 
 validate.default <- function(schema, request) {
-  rlang::abort("Unimplemented")
+  stop("validate not implemented for schema type: ", class(schema))
 }
 
 validate.js_schema <- function(schema, request) {
