@@ -44,9 +44,9 @@ js_common_attributes <- function(
     #   rlang::is_scalar_vector(.examples) || is.null(.examples),
 
     # TODO which type does enum have in case of object
-    "`.enum` must be scalar vector or NULL" =
+    "`.enum` must be vector or NULL" =
       inherits(.element, "js_schema_object") ||
-        rlang::is_scalar_vector(.enum) ||
+        rlang::is_vector(.enum) ||
         is.null(.enum),
     "`.const` must be scalar vector or NULL" =
       rlang::is_scalar_vector(.const) || is.null(.const),
