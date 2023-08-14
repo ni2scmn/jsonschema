@@ -13,6 +13,30 @@
     <loc>https://ni2scmn.github.io/plumberschema/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_array.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_boolean.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_common_attributes.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_integer.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_null.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_numeric.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_object.html</loc>
+  </url>
+  <url>
+    <loc>https://ni2scmn.github.io/plumberschema/reference/js_string.html</loc>
+  </url>
+  <url>
     <loc>https://ni2scmn.github.io/plumberschema/reference/plumber.schema-package.html</loc>
   </url>
 </urlset>
