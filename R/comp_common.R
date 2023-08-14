@@ -44,9 +44,9 @@ js_common_attributes <- function(
     #   rlang::is_scalar_vector(.examples) || is.null(.examples),
 
     # TODO which type does enum have in case of object
-    "`.enum` must be scalar vector or NULL" =
+    "`.enum` must be vector or NULL" =
       inherits(.element, "js_schema_object") ||
-        rlang::is_scalar_vector(.enum) ||
+        rlang::is_vector(.enum) ||
         is.null(.enum),
     "`.const` must be scalar vector or NULL" =
       rlang::is_scalar_vector(.const) || is.null(.const),
@@ -56,6 +56,18 @@ js_common_attributes <- function(
 
   if (inherits(.element, "js_schema_object") && !is.null(.enum)) {
     rlang::warn("No validation for enums of object type implemented")
+  }
+
+  if (inherits(.element, "js_schema_integer")) {
+    if (!is.null(.const)) {
+      .const <- as.integer(.const)
+    }
+    if (!is.null(.default)) {
+      .default <- as.integer(.default)
+    }
+    if (!is.null(.enum)) {
+      .enum <- as.integer(.enum)
+    }
   }
 
   utils::modifyList(
