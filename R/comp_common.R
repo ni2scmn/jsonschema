@@ -58,6 +58,18 @@ js_common_attributes <- function(
     rlang::warn("No validation for enums of object type implemented")
   }
 
+  if (inherits(.element, "js_schema_integer")) {
+    if (!is.null(.const)) {
+      .const <- as.integer(.const)
+    }
+    if (!is.null(.default)) {
+      .default <- as.integer(.default)
+    }
+    if (!is.null(.enum)) {
+      .enum <- as.integer(.enum)
+    }
+  }
+
   utils::modifyList(
     .element,
     list(
