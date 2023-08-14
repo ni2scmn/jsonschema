@@ -12,8 +12,7 @@ test_that("can create string schema with all attributes", {
       js_string(
         .min_length = 1,
         .max_length = 10,
-        .pattern = "^[a-z]+$",
-        .required = TRUE
+        .pattern = "^[a-z]+$"
       )
     )
   })
@@ -24,8 +23,7 @@ test_that("can create string schema with all attributes and parse sucessfully", 
     js_string(
       .min_length = 1,
       .max_length = 10,
-      .pattern = "^[a-z]+$",
-      .required = TRUE
+      .pattern = "^[a-z]+$"
     )
   )
 
