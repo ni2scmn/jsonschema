@@ -12,7 +12,8 @@ js_common_attributes(
   .examples = NULL,
   .enum = NULL,
   .const = NULL,
-  .default = NULL
+  .default = NULL,
+  .required = FALSE
 )
 }
 \arguments{
@@ -31,6 +32,8 @@ js_common_attributes(
 \item{.const}{restrict element by constant value that must be met}
 
 \item{.default}{default value for component if not explicitly set}
+
+\item{.required}{logical indicating if element is required}
 }
 \value{
 modified .element
