@@ -34,6 +34,7 @@ js_string(
     \item{\code{.enum}}{restrict element by list of valid elements}
     \item{\code{.const}}{restrict element by constant value that must be met}
     \item{\code{.default}}{default value for component if not explicitly set}
+    \item{\code{.required}}{logical indicating if element is required}
   }}
 }
 \description{

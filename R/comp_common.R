@@ -13,6 +13,7 @@
 #' @param .enum restrict element by list of valid elements
 #' @param .const restrict element by constant value that must be met
 #' @param .default default value for component if not explicitly set
+#' @param .required logical indicating if element is required
 #'
 #' @return modified .element
 #'
@@ -26,8 +27,8 @@ js_common_attributes <- function(
     # validating attributes
     .enum = NULL, # TODO check type of default value?
     .const = NULL,
-    .default = NULL # TODO check type of default value?
-    ) {
+    .default = NULL, # TODO check type of default value?
+    .required = FALSE) {
   stopifnot(
     "`.element` must be instance of js_schema_component" =
       inherits(.element, "js_schema_component"),
@@ -66,7 +67,8 @@ js_common_attributes <- function(
       examples = .examples,
       enum = .enum,
       const = .const,
-      default = .default
+      default = .default,
+      required = .required
     )
   )
 }
