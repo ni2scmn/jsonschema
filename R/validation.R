@@ -12,6 +12,10 @@ validate_common <- function(schema, request) {
     validate_enum(schema, request)
   }
 
+  if (schema$required && is.null(request)) {
+    rlang::abort("Missing mandatory!")
+  }
+
   TRUE
 }
 
@@ -32,17 +36,6 @@ validate.js_schema <- function(schema, request) {
 validate.js_schema_object <- function(schema, request) {
   print("validate.js_schema_object")
 
-  # TODO implement check for required
-  # check for required attributes
-  # required_attributes <- schema$props %>%
-  #   purrr::keep(
-  #     ~ inherits(.x, "js_schema_component") &&
-  #     .x$required
-  #     )
-
-  # if(!all(names(required_attributes) %in% names(request))) {
-  #   rlang::abort("Missing mandatory!")
-  # }
 
   # check for min/max properties
   if (!is.null(schema$min_properties)) {
@@ -74,12 +67,10 @@ validate.js_schema_object <- function(schema, request) {
   }
 
   # TODO check for dependencies
-  # TODO check for required itself
   all(
-    purrr::map2_lgl(
-      .x = schema$props[names(request)],
-      .y = request,
-      .f = \(x, y) validate(x, y)
+    purrr::imap_lgl(
+      .x = schema$props,
+      .f = \(prop, prop_name) validate(prop, request[[prop_name]])
     )
   )
 }

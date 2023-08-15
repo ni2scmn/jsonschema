@@ -25,7 +25,7 @@ test_that("can create object schema with all attributes", {
 test_that("can create object schema with all attributes and parse sucessfully", {
   schema <- js_schema(
     js_object(
-      myname = js_string(),
+      myname = js_string(.required = TRUE),
       myage = js_integer(),
       .min_properties = 1,
       .max_properties = 10,
@@ -49,10 +49,9 @@ test_that("can create object schema with all attributes and parse sucessfully", 
   ) %>%
     jsonlite::toJSON(auto_unbox = TRUE)
 
-  # TODO enable when check for required attributes is implemented
-  # expect_error({
-  #   parse(schema, request_too_short)
-  # })
+  expect_error({
+    parse(schema, request_too_short)
+  })
 
   request_too_long <- list(
     myname = "test",

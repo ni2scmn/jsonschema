@@ -20,6 +20,7 @@ expressive error messages
 keep context in validation
 fix windows build in github actions
 
+test-numeric-schema
 
 
 style cicd?
