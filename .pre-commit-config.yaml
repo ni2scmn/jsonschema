@@ -65,8 +65,10 @@ repos:
     -   id: check-byte-order-marker
     -   id: check-case-conflict
     -   id: check-json
+        exclude: '.vscode/launch.json'
     -   id: check-yaml
     -   id: pretty-format-json
+        exclude: '.vscode/launch.json'
     -   id: check-merge-conflict
     -   id: end-of-file-fixer
     -   id: fix-byte-order-marker

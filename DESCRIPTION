@@ -2,7 +2,7 @@ Package: plumber.schema
 Type: Package
 Title: Implementation of JSON Schema for plumber
 Version: 0.1.0
-Authors@R: 
+Authors@R:
     person(given = "Nils",
            family = "Schnakenberg",
            role = c("aut", "cre"),
@@ -15,7 +15,7 @@ Description: Implementation of JSON Schema for plumber. This package provides a
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Suggests: 
+Suggests:
     covr,
     testthat (>= 3.0.0),
     precommit
@@ -26,5 +26,6 @@ Imports:
     jsonlite,
     purrr,
     rlang,
-    magrittr
+    magrittr,
+    yaml
 URL: https://ni2scmn.github.io/plumberschema/
