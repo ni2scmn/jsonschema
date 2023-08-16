@@ -30,3 +30,5 @@ github pages with docs?
 json main schema description (title, description, etc) with schema main exclusive properties
 
 order json representation of schema properties?
+
+tests for conversion
