@@ -37,7 +37,7 @@ js_common_attributes <- function(
     "`.description` must be scalar string or NULL" =
       rlang::is_scalar_character(.description) || is.null(.description),
     "`.comment` must be scalar string or NULL" =
-      rlang::is_scalar_character(.comment) || is.null(.comment),
+      rlang::is_scalar_character(.comment) || is.null(.comment)
 
     # TODO which requirements must satify .examples
     # "`.examples` must be scalar vector or NULL" =
