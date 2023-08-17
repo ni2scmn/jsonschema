@@ -8,6 +8,7 @@ covr
 cre
 debugMode
 defs
+eu
 fwlink
 github
 gmail
@@ -19,6 +20,7 @@ js
 JSON
 json
 jsonlite
+jsonschema
 LazyData
 linkid
 loadPackages
@@ -28,6 +30,7 @@ microsoft
 ni
 nils
 Nils
+nschnakenberg
 oneOf
 OpenAPI
 plumberschema

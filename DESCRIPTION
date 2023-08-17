@@ -1,6 +1,6 @@
-Package: plumber.schema
+Package: jsonschema
 Type: Package
-Title: Implementation of JSON Schema for plumber
+Title: Implementation of JSON Schema in R
 Version: 0.1.0
 Authors@R:
     person(given = "Nils",
@@ -8,10 +8,9 @@ Authors@R:
            role = c("aut", "cre"),
            email = "schnakenberg.nils@gmail.com")
 Maintainer: Nils Schnakenberg <schnakenberg.nils@gmail.com>
-Description: Implementation of JSON Schema for plumber. This package provides a
-    function to generate a plumber router from a JSON Schema. The router can be
-    used to validate requests against the schema and to generate OpenAPI
-    documentation.
+Description: Implementation of JSON Schema in R.
+    JSON Schema is a vocabulary that allows you to annotate and validate JSON documents.
+    For more information about JSON Schema itself, please see <https://json-schema.org/>.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
@@ -28,4 +27,4 @@ Imports:
     rlang,
     magrittr,
     yaml
-URL: https://ni2scmn.github.io/plumberschema/
+URL: https://jsonschema.nschnakenberg.eu/
