@@ -37,21 +37,24 @@ js_common_attributes <- function(
     "`.description` must be scalar string or NULL" =
       rlang::is_scalar_character(.description) || is.null(.description),
     "`.comment` must be scalar string or NULL" =
-      rlang::is_scalar_character(.comment) || is.null(.comment),
+      rlang::is_scalar_character(.comment) || is.null(.comment)
 
     # TODO which requirements must satify .examples
     # "`.examples` must be scalar vector or NULL" =
     #   rlang::is_scalar_vector(.examples) || is.null(.examples),
 
     # TODO which type does enum have in case of object
-    "`.enum` must be vector or NULL" =
-      inherits(.element, "js_schema_object") ||
-        rlang::is_vector(.enum) ||
-        is.null(.enum),
-    "`.const` must be scalar vector or NULL" =
-      rlang::is_scalar_vector(.const) || is.null(.const),
-    "`.default` must be scalar string or NULL" =
-      rlang::is_scalar_character(.default) || is.null(.default)
+    # "`.enum` must be vector or NULL" =
+    #   inherits(.element, "js_schema_object") ||
+    #     rlang::is_vector(.enum) ||
+    #     is.null(.enum),
+
+    # TODO check correct type check
+    # "`.const` must be scalar vector or NULL" =
+    #   rlang::is_scalar_vector(.const) || is.null(.const),
+    # TODO check correct type check
+    # "`.default` must be scalar string or NULL" =
+    #   rlang::is_scalar_character(.default) || is.null(.default)
   )
 
   if (inherits(.element, "js_schema_object") && !is.null(.enum)) {
