@@ -27,11 +27,11 @@ js_array <- function(
 
   stopifnot(
     "`.min_items` must be non negative integer or NULL" =
-      rlang::is_scalar_integerish(.min_items) || is.null(.min_items),
+      rlang::is_scalar_integerish(.min_items) || rlang::is_empty(.min_items),
     "`.max_items` must be non negative integer or NULL" =
-      rlang::is_scalar_integerish(.max_items) || is.null(.max_items),
+      rlang::is_scalar_integerish(.max_items) || rlang::is_empty(.max_items),
     "`.unique_items` must be scalar boolean or NULL" =
-      rlang::is_scalar_logical(.unique_items) || is.null(.unique_items)
+      rlang::is_scalar_logical(.unique_items) || rlang::is_empty(.unique_items)
   )
 
   structure(

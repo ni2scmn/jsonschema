@@ -168,5 +168,5 @@ translate_common_comp <- function(element) {
     const = element$const,
     default = element$default
   ) %>%
-    purrr::keep(~ !is.null(.x))
+    purrr::keep(~ !rlang::is_empty(.x))
 }
