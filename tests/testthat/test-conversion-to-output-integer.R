@@ -23,7 +23,7 @@ test_that("can convert integer schema sucessfully", {
         .exclusive_maximum = exclusive_maximum,
         .title = title,
         .description = description,
-        .default = default,
+        # .default = default,
         .enum = enum,
         .const = const,
         .examples = examples

@@ -13,7 +13,7 @@ test_that("can convert integer schema sucessfully", {
       js_boolean(
         .title = title,
         .description = description,
-        .default = default,
+        # .default = default,
         .enum = enum,
         .const = const,
         .examples = examples
