@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/reference/test_package.html#special-files
 
 library(testthat)
-library(plumber.schema)
+library(jsonschema)
 
-test_check("plumber.schema")
+test_check("jsonschema")
