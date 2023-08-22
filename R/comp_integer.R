@@ -18,25 +18,25 @@ js_integer <- function(
     .exclusive_maximum = NULL,
     ...) {
   stopifnot(
-    "`.multiple_of` must be scalar numeric or NULL" =
+    "`.multiple_of` must be scalar integerish or NULL" =
       rlang::is_scalar_integerish(.multiple_of) || is.null(.multiple_of),
-    "`.minimum` must be scalar numeric or NULL" =
+    "`.minimum` must be scalar integerish or NULL" =
       rlang::is_scalar_integerish(.minimum) || is.null(.minimum),
-    "`.maximum` must be scalar numeric or NULL" =
+    "`.maximum` must be scalar integerish or NULL" =
       rlang::is_scalar_integerish(.maximum) || is.null(.maximum),
-    "`.exclusive_minimum` must be scalar numeric or NULL" =
+    "`.exclusive_minimum` must be scalar integerish or NULL" =
       rlang::is_scalar_integerish(.exclusive_minimum) || is.null(.exclusive_minimum),
-    "`.exclusive_maximum` must be scalar numeric or NULL" =
+    "`.exclusive_maximum` must be scalar integerish or NULL" =
       rlang::is_scalar_integerish(.exclusive_maximum) || is.null(.exclusive_maximum)
   )
 
   structure(
     list(
-      multiple_of = .multiple_of,
-      minimum = .minimum,
-      maximum = .maximum,
-      exclusive_minimum = .exclusive_minimum,
-      exclusive_maximum = .exclusive_maximum
+      multiple_of = as.integer(.multiple_of),
+      minimum = as.integer(.minimum),
+      maximum = as.integer(.maximum),
+      exclusive_minimum = as.integer(.exclusive_minimum),
+      exclusive_maximum = as.integer(.exclusive_maximum)
     ),
     class = c("js_schema_integer", "js_schema_component")
   ) %>%

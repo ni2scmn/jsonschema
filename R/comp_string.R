@@ -22,9 +22,9 @@ js_string <- function(
     ),
     ...) {
   stopifnot(
-    "`.min_length` must be non negative integer or NULL" =
+    "`.min_length` must be non negative integerish or NULL" =
       rlang::is_scalar_integerish(.min_length) || is.null(.min_length),
-    "`.max_length` must be non negative integer or NULL" =
+    "`.max_length` must be non negative integerish or NULL" =
       rlang::is_scalar_integerish(.max_length) || is.null(.max_length),
     "`.pattern` must be scalar string or NULL" =
       rlang::is_scalar_character(.pattern) || is.null(.pattern)
@@ -37,8 +37,8 @@ js_string <- function(
 
   structure(
     list(
-      min_length = .min_length,
-      max_length = .max_length,
+      min_length = as.integer(.min_length),
+      max_length = as.integer(.max_length),
       pattern = .pattern
     ),
     class = c("js_schema_string", "js_schema_component")
