@@ -33,15 +33,17 @@ js_object <- function(
   # TODO contains ??
 
   stopifnot(
-    "`.min_properties` must be non negative integer or NULL" =
+    "`.min_properties` must be non negative integerish or NULL" =
       rlang::is_scalar_integerish(.min_properties) || is.null(.min_properties),
-    "`.max_properties` must be non negative integer or NULL" =
+    "`.max_properties` must be non negative integerish or NULL" =
       rlang::is_scalar_integerish(.max_properties) || is.null(.max_properties),
     "`.pattern_properties` must be scalar string or NULL" =
       rlang::is_scalar_character(.pattern_properties) || is.null(.pattern_properties),
     "`.additional_properties` must be scalar boolean or NULL" =
       rlang::is_scalar_logical(.additional_properties) || is.null(.additional_properties)
   )
+
+  # TODO check for min_properties < max_properties and .min_properties > 0
 
   dot_args <- rlang::list2(...)
 
@@ -62,8 +64,8 @@ js_object <- function(
   obj <- structure(
     list(
       props = dot_args[given_props],
-      min_properties = .min_properties,
-      max_properties = .max_properties,
+      min_properties = as.integer(.min_properties),
+      max_properties = as.integer(.max_properties),
       pattern_properties = .pattern_properties,
       additional_properties = .additional_properties
     ),

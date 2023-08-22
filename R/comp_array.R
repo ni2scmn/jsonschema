@@ -37,8 +37,8 @@ js_array <- function(
   structure(
     list(
       items = .items,
-      min_items = .min_items,
-      max_items = .max_items,
+      min_items = as.integer(.min_items),
+      max_items = as.integer(.max_items),
       unique_items = .unique_items
     ),
     class = c("js_schema_array", "js_schema_component")
