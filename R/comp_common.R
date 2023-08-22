@@ -57,7 +57,7 @@ js_common_attributes <- function(
     #   rlang::is_scalar_character(.default) || is.null(.default)
   )
 
-  if (inherits(.element, "js_schema_object") && !is.null(.enum)) {
+  if(inherits(.element, "js_schema_object") && !is.null(.enum)) {
     rlang::warn("No validation for enums of object type implemented")
   }
 
