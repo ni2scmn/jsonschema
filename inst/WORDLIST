@@ -3,6 +3,7 @@ allowGlobalDebugging
 anyOf
 aut
 cicd
+Codecov
 Config
 covr
 cre

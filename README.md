@@ -4,6 +4,15 @@
 # jsonschema
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/ni2scmn/plumberschema/branch/main/graph/badge.svg)](https://app.codecov.io/gh/ni2scmn/plumberschema?branch=main)
+[![Lint
+Status](https://github.com/ni2scmn/jsonschema/actions/workflows/lint.yaml/badge.svg)](https://github.com/ni2scmn/jsonschema/actions/workflows/lint.yaml/badge.svg)
+[![Check
+Status](https://github.com/ni2scmn/jsonschema/actions/workflows/check.yaml/badge.svg)](https://github.com/ni2scmn/jsonschema/actions/workflows/check.yaml/badge.svg)
+[![Style
+Status](https://github.com/ni2scmn/jsonschema/actions/workflows/style.yaml/badge.svg)](https://github.com/ni2scmn/jsonschema/actions/workflows/style.yaml/badge.svg)
 <!-- badges: end -->
 
 The goal of jsonschema is to …
