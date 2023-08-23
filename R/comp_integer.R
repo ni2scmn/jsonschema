@@ -19,15 +19,15 @@ js_integer <- function(
     ...) {
   stopifnot(
     "`.multiple_of` must be scalar integerish or NULL" =
-      rlang::is_scalar_integerish(.multiple_of) || is.null(.multiple_of),
+      rlang::is_scalar_integerish(.multiple_of) || rlang::is_empty(.multiple_of),
     "`.minimum` must be scalar integerish or NULL" =
-      rlang::is_scalar_integerish(.minimum) || is.null(.minimum),
+      rlang::is_scalar_integerish(.minimum) || rlang::is_empty(.minimum),
     "`.maximum` must be scalar integerish or NULL" =
-      rlang::is_scalar_integerish(.maximum) || is.null(.maximum),
+      rlang::is_scalar_integerish(.maximum) || rlang::is_empty(.maximum),
     "`.exclusive_minimum` must be scalar integerish or NULL" =
-      rlang::is_scalar_integerish(.exclusive_minimum) || is.null(.exclusive_minimum),
+      rlang::is_scalar_integerish(.exclusive_minimum) || rlang::is_empty(.exclusive_minimum),
     "`.exclusive_maximum` must be scalar integerish or NULL" =
-      rlang::is_scalar_integerish(.exclusive_maximum) || is.null(.exclusive_maximum)
+      rlang::is_scalar_integerish(.exclusive_maximum) || rlang::is_empty(.exclusive_maximum)
   )
 
   structure(

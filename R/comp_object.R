@@ -34,13 +34,13 @@ js_object <- function(
 
   stopifnot(
     "`.min_properties` must be non negative integerish or NULL" =
-      rlang::is_scalar_integerish(.min_properties) || is.null(.min_properties),
+      rlang::is_scalar_integerish(.min_properties) || rlang::is_empty(.min_properties),
     "`.max_properties` must be non negative integerish or NULL" =
-      rlang::is_scalar_integerish(.max_properties) || is.null(.max_properties),
+      rlang::is_scalar_integerish(.max_properties) || rlang::is_empty(.max_properties),
     "`.pattern_properties` must be scalar string or NULL" =
-      rlang::is_scalar_character(.pattern_properties) || is.null(.pattern_properties),
+      rlang::is_scalar_character(.pattern_properties) || rlang::is_empty(.pattern_properties),
     "`.additional_properties` must be scalar boolean or NULL" =
-      rlang::is_scalar_logical(.additional_properties) || is.null(.additional_properties)
+      rlang::is_scalar_logical(.additional_properties) || rlang::is_empty(.additional_properties)
   )
 
   # TODO check for min_properties < max_properties and .min_properties > 0

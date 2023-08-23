@@ -17,19 +17,19 @@ js_numeric <- function(
     ...) {
   stopifnot(
     "`.multiple_of` must be scalar numeric or NULL" =
-      rlang::is_scalar_double(.multiple_of) || is.null(.multiple_of),
+      rlang::is_scalar_double(.multiple_of) || rlang::is_empty(.multiple_of),
     "`.minimum` must be scalar numeric or NULL" =
-      rlang::is_scalar_double(.minimum) || rlang::is_scalar_integer(.minimum) || is.null(.minimum),
+      rlang::is_scalar_double(.minimum) || rlang::is_scalar_integer(.minimum) || rlang::is_empty(.minimum),
     "`.maximum` must be scalar numeric or NULL" =
-      rlang::is_scalar_double(.maximum) || rlang::is_scalar_integer(.maximum) || is.null(.maximum),
+      rlang::is_scalar_double(.maximum) || rlang::is_scalar_integer(.maximum) || rlang::is_empty(.maximum),
     "`.exclusive_minimum` must be scalar numeric or NULL" =
       rlang::is_scalar_double(.exclusive_minimum) ||
         rlang::is_scalar_integer(.exclusive_minimum) ||
-        is.null(.exclusive_minimum),
+        rlang::is_empty(.exclusive_minimum),
     "`.exclusive_maximum` must be scalar numeric or NULL" =
       rlang::is_scalar_double(.exclusive_maximum) ||
         rlang::is_scalar_integer(.exclusive_maximum) ||
-        is.null(.exclusive_maximum)
+        rlang::is_empty(.exclusive_maximum)
   )
 
   structure(

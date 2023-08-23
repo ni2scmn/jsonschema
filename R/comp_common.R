@@ -33,42 +33,42 @@ js_common_attributes <- function(
     "`.element` must be instance of js_schema_component" =
       inherits(.element, "js_schema_component"),
     "`.title` must be scalar string or NULL" =
-      rlang::is_scalar_character(.title) || is.null(.title),
+      rlang::is_scalar_character(.title) || rlang::is_empty(.title),
     "`.description` must be scalar string or NULL" =
-      rlang::is_scalar_character(.description) || is.null(.description),
+      rlang::is_scalar_character(.description) || rlang::is_empty(.description),
     "`.comment` must be scalar string or NULL" =
-      rlang::is_scalar_character(.comment) || is.null(.comment)
+      rlang::is_scalar_character(.comment) || rlang::is_empty(.comment)
 
     # TODO which requirements must satify .examples
     # "`.examples` must be scalar vector or NULL" =
-    #   rlang::is_scalar_vector(.examples) || is.null(.examples),
+    #   rlang::is_scalar_vector(.examples) || rlang::is_empty(.examples),
 
     # TODO which type does enum have in case of object
     # "`.enum` must be vector or NULL" =
     #   inherits(.element, "js_schema_object") ||
     #     rlang::is_vector(.enum) ||
-    #     is.null(.enum),
+    #     rlang::is_empty(.enum),
 
     # TODO check correct type check
     # "`.const` must be scalar vector or NULL" =
-    #   rlang::is_scalar_vector(.const) || is.null(.const),
+    #   rlang::is_scalar_vector(.const) || rlang::is_empty(.const),
     # TODO check correct type check
     # "`.default` must be scalar string or NULL" =
-    #   rlang::is_scalar_character(.default) || is.null(.default)
+    #   rlang::is_scalar_character(.default) || rlang::is_empty(.default)
   )
 
-  if (inherits(.element, "js_schema_object") && !is.null(.enum)) {
+  if (inherits(.element, "js_schema_object") && !rlang::is_empty(.enum)) {
     rlang::warn("No validation for enums of object type implemented")
   }
 
   if (inherits(.element, "js_schema_integer")) {
-    if (!is.null(.const)) {
+    if (!rlang::is_empty(.const)) {
       .const <- as.integer(.const)
     }
-    if (!is.null(.default)) {
+    if (!rlang::is_empty(.default)) {
       .default <- as.integer(.default)
     }
-    if (!is.null(.enum)) {
+    if (!rlang::is_empty(.enum)) {
       .enum <- as.integer(.enum)
     }
   }
