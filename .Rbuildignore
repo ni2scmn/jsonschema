@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^.lintr$
+^README\.Rmd$
 ^TODOS$
 ^WIP_req_object.R$
 ^\.Rproj\.user$
