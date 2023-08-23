@@ -1,7 +1,6 @@
 # TODO readOnly, writeOnly?
 # TODO deprecated?
 # TODO '$schema' version?
-# TODO mandatory on element level?
 
 #' Utility function for common schema keywords
 #'

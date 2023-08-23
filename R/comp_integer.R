@@ -1,5 +1,3 @@
-# TODO check valide is integer
-# TODO should be able to define both minimum and exclusiveMinimum
 #' TODO integer
 #'
 #' @param .multiple_of force component to be a multiple of that number
