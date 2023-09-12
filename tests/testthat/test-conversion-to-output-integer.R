@@ -10,9 +10,9 @@ test_that("can convert integer schema sucessfully", {
     title <- "Integer Schema"
     description <- "Schema for integers"
     default <- 55
-    enum <- c(11, 22, 33)
-    const <- 33
-    examples <- c(11, 22, 33)
+    enum <- c(11L, 22L, 33L)
+    const <- 33L
+    examples <- c(11L, 22L, 33L)
 
     schema <- js_schema(
       js_integer(

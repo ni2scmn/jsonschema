@@ -56,33 +56,30 @@ js_common_attributes <- function(
     #   rlang::is_scalar_character(.default) || rlang::is_empty(.default)
   )
 
-  if (inherits(.element, "js_schema_object") && !rlang::is_empty(.enum)) {
-    rlang::warn("No validation for enums of object type implemented")
-  }
+  args_to_check <- list(
+    .element = .element,
+    .examples = .examples,
+    .enum = .enum,
+    .const = .const,
+    .default = .default
+  )
 
-  if (inherits(.element, "js_schema_integer")) {
-    if (!rlang::is_empty(.const)) {
-      .const <- as.integer(.const)
-    }
-    if (!rlang::is_empty(.default)) {
-      .default <- as.integer(.default)
-    }
-    if (!rlang::is_empty(.enum)) {
-      .enum <- as.integer(.enum)
-    }
-  }
+  common_args <- list(
+    title = .title,
+    description = .description,
+    comment = .comment,
+    examples = .examples,
+    enum = .enum,
+    const = .const,
+    default = .default,
+    required = .required
+  ) %>%
+    utils::modifyList(
+      do.call(common_attrs_check, args_to_check)
+    )
 
   utils::modifyList(
     .element,
-    list(
-      title = .title,
-      description = .description,
-      comment = .comment,
-      examples = .examples,
-      enum = .enum,
-      const = .const,
-      default = .default,
-      required = .required
-    )
+    common_args
   )
 }
